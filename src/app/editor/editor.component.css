@@ -1,0 +1,14 @@
+/* Ensure the editor container expands */
+.editor-container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Allow Monaco editor to fill the container */
+  :host {
+    display: block;
+    height: 100%;
+  }
+  

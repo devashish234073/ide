@@ -1,0 +1,18 @@
+.context-menu {
+    position: absolute;
+    display: block;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .context-menu div {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .context-menu div:hover {
+    background-color: #eee;
+  }
+  

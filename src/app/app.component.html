@@ -1,0 +1,10 @@
+<app-menu-bar></app-menu-bar>
+<div id="workspace">
+  <app-project-explorer (notifyParent)="handleRightClick($event)"></app-project-explorer>
+  <div id="editor">
+    <app-editor></app-editor>
+    <div id="console">Console Output</div>
+  </div>
+</div>
+<div id="status-bar">Ready</div>
+<app-context-menu *ngIf="isContextMenuVisible" [menuPosition]="getMenuPosition()"></app-context-menu>
