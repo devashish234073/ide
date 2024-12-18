@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "backend.js",
+  "scripts": {
+    "test": "node backend.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devashish234073/ide.git"
+  },
+  "author": "Devashish Priyadarshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devashish234073/ide/issues"
+  },
+  "homepage": "https://github.com/devashish234073/ide#readme",
+  "description": "",
+  "dependencies": {
+    "backend": "file:",
+    "express": "^4.21.2"
+  }
+}

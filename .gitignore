@@ -1,2 +1,4 @@
 .angular
 node_modules
+backend/projects
+backend/node_modules
