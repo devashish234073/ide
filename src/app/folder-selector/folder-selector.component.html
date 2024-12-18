@@ -1,0 +1,6 @@
+<div>
+    <h1>Select Folder</h1>
+    <button (click)="selectFolder()">Choose Folder</button>
+    <p *ngIf="folderPath">Selected Folder: {{ folderPath }}</p>
+    <button *ngIf="folderPath" (click)="sendToBackend()">Send to Backend</button>
+</div>

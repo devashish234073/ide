@@ -3,7 +3,7 @@
       File
       <div class="menu-dropdown">
         <div class="menu-dropdown-item">New</div>
-        <div class="menu-dropdown-item">Open</div>
+        <div class="menu-dropdown-item" (click)="toggleFolderSelection()">Open</div>
         <div class="menu-dropdown-item">Save</div>
         <div class="menu-dropdown-item">Exit</div>
       </div>
@@ -21,4 +21,5 @@
     <div class="menu-item">View</div>
     <div class="menu-item">Help</div>
   </div>
+  <app-folder-selector *ngIf="folderSelectorOpen"></app-folder-selector>
   

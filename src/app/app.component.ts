@@ -5,6 +5,7 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
 import { EditorComponent } from './editor/editor.component';
 import { ProjectExplorerComponent } from './project-explorer/project-explorer.component';
 import { CommonModule } from '@angular/common';
+import { FolderSelectorComponent } from './folder-selector/folder-selector.component';
 
 @Component({
   selector: 'app-root',
