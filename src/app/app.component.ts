@@ -16,12 +16,17 @@ import { FolderSelectorComponent } from './folder-selector/folder-selector.compo
 export class AppComponent {
   isContextMenuVisible = false;
   menuPosition = { x: 0, y: 0 };
+  fileOpen:any;
   title = 'ide';
 
   handleRightClick(event:any) {
-    let eventObj = JSON.parse(event);
-    this.menuPosition = eventObj.menuPosition;
+    this.menuPosition = event.menuPosition;
     this.isContextMenuVisible = !this.isContextMenuVisible;
+  }
+
+  handleFileOpen(event:any) {
+    console.log("event received..",event);
+    this.fileOpen = event;
   }
 
   getMenuPosition() {

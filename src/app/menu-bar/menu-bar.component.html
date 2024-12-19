@@ -1,25 +1,35 @@
 <div id="menu-bar">
-    <div class="menu-item">
-      File
-      <div class="menu-dropdown">
-        <div class="menu-dropdown-item">New</div>
-        <div class="menu-dropdown-item" (click)="toggleFolderSelection()">Open</div>
-        <div class="menu-dropdown-item">Save</div>
-        <div class="menu-dropdown-item">Exit</div>
+  <div class="menu-item">
+    File
+    <div class="menu-dropdown">
+      <div class="menu-dropdown-item">
+        New
+        <!-- Submenu for "New" -->
+        <div class="menu-submenu">
+          <div class="menu-submenu-item">Basic Java Project</div>
+          <div class="menu-submenu-item">Maven Project</div>
+        </div>
       </div>
-    </div>
-    <div class="menu-item">
-      Edit
-      <div class="menu-dropdown">
-        <div class="menu-dropdown-item">Undo</div>
-        <div class="menu-dropdown-item">Redo</div>
-        <div class="menu-dropdown-item">Cut</div>
-        <div class="menu-dropdown-item">Copy</div>
-        <div class="menu-dropdown-item">Paste</div>
+      <div class="menu-dropdown-item" (click)="toggleFolderSelection()">Open
+        <div class="menu-submenu">
+          <div class="menu-submenu-item" *ngFor="let project of projects">{{project}}</div>
+        </div>
       </div>
+      <div class="menu-dropdown-item">Save</div>
+      <div class="menu-dropdown-item">Exit</div>
     </div>
-    <div class="menu-item">View</div>
-    <div class="menu-item">Help</div>
   </div>
-  <app-folder-selector *ngIf="folderSelectorOpen"></app-folder-selector>
-  
+  <div class="menu-item">
+    Edit
+    <div class="menu-dropdown">
+      <div class="menu-dropdown-item">Undo</div>
+      <div class="menu-dropdown-item">Redo</div>
+      <div class="menu-dropdown-item">Cut</div>
+      <div class="menu-dropdown-item">Copy</div>
+      <div class="menu-dropdown-item">Paste</div>
+    </div>
+  </div>
+  <div class="menu-item">View</div>
+  <div class="menu-item">Help</div>
+</div>
+<app-folder-selector *ngIf="folderSelectorOpen"></app-folder-selector>

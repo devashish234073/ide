@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 export class MenuBarComponent {
   folderSelectorOpen = false;
 
+  projects = ["No recent projects"];
+
   toggleFolderSelection() {
     this.folderSelectorOpen = !this.folderSelectorOpen;
   }

@@ -1,49 +1,78 @@
 #menu-bar {
-    display: flex;
-    background-color: #2c3e50;
-    padding: 5px 10px;
-    color: white;
-    font-size: 14px;
-    border-bottom: 1px solid #444;
-  }
-  
-  .menu-item {
-    position: relative;
-    margin-right: 20px;
-    padding: 5px 8px;
-    cursor: pointer;
-  }
-  
-  .menu-item:hover {
-    background-color: #34495e;
-    border-radius: 4px;
-  }
-  
-  .menu-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    z-index: 1000;
-    min-width: 150px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .menu-item:hover .menu-dropdown {
-    display: block;
-  }
-  
-  .menu-dropdown-item {
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 13px;
-  }
-  
-  .menu-dropdown-item:hover {
-    background-color: #ddd;
-  }
-  
+  display: flex;
+  background-color: #2c3e50;
+  padding: 5px 10px;
+  color: white;
+  font-size: 14px;
+  border-bottom: 1px solid #444;
+}
+
+.menu-item {
+  position: relative;
+  margin-right: 20px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #34495e;
+  border-radius: 4px;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  min-width: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item:hover .menu-dropdown {
+  display: block;
+}
+
+.menu-dropdown-item {
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 13px;
+  position: relative;
+}
+
+.menu-dropdown-item:hover {
+  background-color: #ddd;
+}
+
+/* Submenu styles */
+.menu-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1100;
+  min-width: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-dropdown-item:hover .menu-submenu {
+  display: block;
+}
+
+.menu-submenu-item {
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.menu-submenu-item:hover {
+  background-color: #ddd;
+}

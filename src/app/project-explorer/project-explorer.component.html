@@ -1,19 +1,30 @@
 <div id="project-explorer">
-    <h3>Project Explorer</h3>
-    <div *ngFor="let item of projectStructure">
-      <div
-        class="folder"
-        (click)="toggleFolder(item)"
-        [class.open]="item.open"
-        (contextmenu)="onRightClick($event,'folder:'+item.name)"
-      >
-        {{ item.name }}
-      </div>
-      <div class="files" *ngIf="item.children && item.open">
-        <div *ngFor="let child of item.children" class="file">
-          {{ child.name }}
-        </div>
-      </div>
+  <h3>Project Explorer</h3>
+  <ng-container *ngFor="let item of projectStructure">
+    <ng-container *ngTemplateOutlet="recursiveExplorer; context: { $implicit: item }"></ng-container>
+  </ng-container>
+
+  <ng-template #recursiveExplorer let-item>
+    <div
+      class="folder"
+      *ngIf="item.type === 'folder'"
+      (click)="toggleFolder(item)"
+      [class.open]="item.open"
+      (contextmenu)="onRightClick($event, 'folder:' + item.name)"
+    >
+      {{ item.name }}
     </div>
-  </div>
-  
+    <div class="files" *ngIf="item.children && item.open">
+      <ng-container *ngFor="let child of item.children">
+        <ng-container *ngTemplateOutlet="recursiveExplorer; context: { $implicit: child }"></ng-container>
+      </ng-container>
+    </div>
+    <div
+      class="file"
+      *ngIf="item.type === 'file'"
+      (contextmenu)="onRightClick($event, 'file:' + item.name)" (click)="fileOpen(item)"
+    >
+      {{ item.name }}
+    </div>
+  </ng-template>
+</div>

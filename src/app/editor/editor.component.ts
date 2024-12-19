@@ -1,13 +1,23 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css'],
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent implements OnInit,OnChanges {
   @ViewChild('editorContainer', { static: true }) editorContainer!: ElementRef;
+  @Input() file: any = "";
 
+  private editorInstance: any;
+  private languageMap:any = {
+    "java":"java",
+    "py":"python",
+    "js":"javascript",
+    "html":"html",
+    "txt":"plain",
+    "css":"css"
+  };
   ngOnInit() {
     this.loadMonacoEditor();
   }
@@ -34,10 +44,42 @@ export class EditorComponent implements OnInit {
   initializeMonacoEditor() {
     const container = this.editorContainer.nativeElement;
 
-    (window as any).monaco.editor.create(container, {
+    this.editorInstance = (window as any).monaco.editor.create(container, {
       value: "// Start coding here...\n",
       language: 'java',
       theme: 'vs-dark',
     });
+  }
+
+  getFileExtension(filename:String) {
+    const lastDotIndex = filename.lastIndexOf('.');
+    return lastDotIndex !== -1 ? filename.substring(lastDotIndex + 1) : '';
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['file'] && changes['file'].currentValue) {
+      try {
+        const newValue = this.file.content;
+        const fileName = this.file.name;
+        this.updateEditorContent(newValue, fileName);
+      } catch (error) {
+        console.error('Failed to parse content:', error);
+      }
+    }
+  }
+
+  updateEditorContent(newValue: string, fileName: string) {
+    let ext = this.getFileExtension(fileName);
+    let newLanguage = this.languageMap[ext]?this.languageMap[ext]:"java";
+    if (this.editorInstance) {
+      // Update the editor value
+      this.editorInstance.setValue(newValue);
+
+      // Update the editor language
+      const monaco = (window as any).monaco;
+      monaco.editor.setModelLanguage(this.editorInstance.getModel(), newLanguage);
+    } else {
+      console.error('Editor instance is not initialized.');
+    }
   }
 }
