@@ -30,7 +30,7 @@ export class MenuBarComponent {
       console.log("projectDetails",projectDetails);
       const processedStructure = this.processProjectStructure(projectName,projectDetails.structure);
       console.log("processedStructure", processedStructure);
-      this.notifyProjectOpen.emit(processedStructure);
+      this.notifyProjectOpen.emit({"projectName":projectName,"structure":processedStructure});
     }
   }
 

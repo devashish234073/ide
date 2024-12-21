@@ -17,6 +17,7 @@ export class AppComponent {
   isContextMenuVisible = false;
   menuPosition = { x: 0, y: 0 };
   fileOpen:any;
+  projectImported:any;
   title = 'ide';
 
   handleRightClick(event:any) {
@@ -29,10 +30,11 @@ export class AppComponent {
     this.fileOpen = event;
   }
 
-  projectOpened(event:any) {
-    console.log("project opened..",event);
+  handleProjectImported(projectImported:any) {
+    console.log("project opened..",projectImported);
+    this.projectImported = projectImported;
   }
-  
+
 
   getMenuPosition() {
     return JSON.stringify(this.menuPosition);

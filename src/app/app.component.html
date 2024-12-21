@@ -1,6 +1,6 @@
-<app-menu-bar (notifyProjectOpen)="projectOpened($event)"></app-menu-bar>
+<app-menu-bar (notifyProjectOpen)="handleProjectImported($event)"></app-menu-bar>
 <div id="workspace">
-  <app-project-explorer (notifyRightClick)="handleRightClick($event)" (notifyFileOpen)="handleFileOpen($event)"></app-project-explorer>
+  <app-project-explorer (notifyRightClick)="handleRightClick($event)" (notifyFileOpen)="handleFileOpen($event)" [projectImported]="projectImported"></app-project-explorer>
   <div id="editor">
     <app-editor [file]="fileOpen"></app-editor>
     <div id="console">Console Output</div>
