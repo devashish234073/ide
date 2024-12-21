@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiCallService {
-
+  host:string = "http://localhost:3000";
   constructor(private http: HttpClient) { }
 
-  makePostCall(url:any,body:any) {
+  makePostCall(path:any,body:any) {
     return new Promise((resolve,reject)=>{
-      this.http.post(url, body).subscribe(
+      this.http.post(this.host+path, body).subscribe(
         (response: any) => {
           resolve(response);
         },
@@ -21,9 +21,9 @@ export class ApiCallService {
     });
   }
 
-  makeGetCall(url:any) {
+  makeGetCall(path:any) {
     return new Promise((resolve,reject)=>{
-      this.http.get(url).subscribe(
+      this.http.get(this.host+path).subscribe(
         (response: any) => {
           resolve(response);
         },
