@@ -70,7 +70,7 @@ app.post('/api/createProject', (req, res) => {
 
 // API to get the folder structure of a specific project
 app.get('/api/getProject/:projectName', (req, res) => {
-    const projectName = req.params.projectName.replace(/\s+/g, '_');
+    let projectName = decodeURIComponent(req.params.projectName);
     const projectPath = path.join(PROJECTS_DIR, projectName);
 
     if (!fs.existsSync(projectPath)) {
