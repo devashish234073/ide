@@ -15,8 +15,22 @@ export class MenuBarComponent {
   projects = ["No recent projects"];
 
   constructor(private apiCallService:ApiCallService) {
-    this.apiCallService.makePostCall("http://localhost:3000/api",{"hello":"why hello"}).then(resp=>console.log(resp));
-    this.apiCallService.makeGetCall("http://localhost:3000/api/listProjects").then(resp=>console.log(resp));
+    this.pupulateProjects();
+  }
+
+  async pupulateProjects() {
+    let resp:any = await this.apiCallService.makeGetCall("/api/listProjects");
+    if(!resp.error) {
+      console.log("resp",resp);
+      for(let i=0;i<resp.projects.length;i++) {
+        let projectName = resp.projects[i];
+        console.log("projectName",projectName);
+        let projectDetails:any = await this.apiCallService.makeGetCall("/api/getProject/"+projectName);
+        if(!projectDetails.error) {
+          console.log("projectDetails",projectDetails);
+        }
+      }
+    }
   }
 
   toggleFolderSelection() {
