@@ -29,6 +29,11 @@ export class AppComponent {
     this.fileOpen = event;
   }
 
+  projectOpened(event:any) {
+    console.log("project opened..",event);
+  }
+  
+
   getMenuPosition() {
     return JSON.stringify(this.menuPosition);
   }

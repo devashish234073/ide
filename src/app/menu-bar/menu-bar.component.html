@@ -10,9 +10,9 @@
           <div class="menu-submenu-item">Maven Project</div>
         </div>
       </div>
-      <div class="menu-dropdown-item" (click)="toggleFolderSelection()">Open
+      <div class="menu-dropdown-item">Open
         <div class="menu-submenu">
-          <div class="menu-submenu-item" *ngFor="let project of projects">{{project}}</div>
+          <div class="menu-submenu-item" *ngFor="let project of projects" (click)="importProject(project)">{{project}}</div>
         </div>
       </div>
       <div class="menu-dropdown-item">Save</div>

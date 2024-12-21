@@ -69,7 +69,6 @@ package com.hello;
   }
 
   onRightClick(event: MouseEvent, contextType: string): void {
-    event.preventDefault();
     let obj = {menuPosition: { x: event.clientX, y: event.clientY }, contextType: contextType};
     this.notifyRightClick.emit(obj);
   }

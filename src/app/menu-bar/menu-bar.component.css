@@ -68,6 +68,7 @@
 }
 
 .menu-submenu-item {
+  pointer-events: auto;
   padding: 8px 15px;
   cursor: pointer;
   font-size: 13px;

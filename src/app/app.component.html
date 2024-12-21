@@ -1,4 +1,4 @@
-<app-menu-bar></app-menu-bar>
+<app-menu-bar (notifyProjectOpen)="projectOpened($event)"></app-menu-bar>
 <div id="workspace">
   <app-project-explorer (notifyRightClick)="handleRightClick($event)" (notifyFileOpen)="handleFileOpen($event)"></app-project-explorer>
   <div id="editor">
